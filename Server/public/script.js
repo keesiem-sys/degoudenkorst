@@ -2,7 +2,7 @@ let cart = [];
 
 const products = [
   {name:"Witbrood", price:2.5, img:"https://images.unsplash.com/photo-1608198093002-ad4e005484ec"},
-  {name:"Croissant", price:1.5, img:"https://images.unsplash.com/photo-1542831371-d531d36971e6"}
+  {name:"Croissant", price:1.5, img:"https://www.ahealthylife.nl/wp-content/uploads/2021/03/Croissant_voedingswaarde.jpg"}
 ];
 
 function toggleMenu(){
@@ -54,22 +54,21 @@ function remove(i){
   updateCart();
 }
 
-async function checkout(){
-  if(cart.length===0){
-    alert("Winkelwagen leeg");
-    return;
-  }
-  try{
-    const res = await fetch('http://degoudenkorst.onrender.com/create-checkout-session', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({cartItems: cart})
+// Stripe checkout
+async function checkout() {
+  if (cart.length === 0) return alert("Winkelwagen leeg!");
+
+  try {
+    const res = await fetch("/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cartItems: cart })
     });
     const data = await res.json();
-    if(data.url) window.location = data.url;
-  } catch(err){
-    alert("Checkout mislukt");
+    window.location.href = data.url; // redirect naar Stripe checkout
+  } catch (err) {
     console.error(err);
+    alert("Er ging iets mis bij de betaling");
   }
 }
 
