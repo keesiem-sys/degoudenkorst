@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bakkerij De Goude Korst | Vers Brood & Gebak</title>
+<meta name="description" content="Ambachtelijke bakkerij met dagelijks vers brood en gebak. Bestel eenvoudig online.">
+<meta name="keywords" content="bakkerij, brood, gebak, bestellen, vers brood">
+<meta name="author" content="Bakkerij De Goude Korst">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo">De Goude Korst</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="menu" id="menu">
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('producten')">Producten</button>
+    <button onclick="showSection('contact')">Contact</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div>
+    <h1>Vers Brood & Gebak</h1>
+    <p>Bestel eenvoudig online – vandaag gebakken</p>
+    <button class="cta" onclick="showSection('producten')">Bekijk Producten</button>
+  </div>
+</div>
+
+<section id="home" class="section active">
+  <h2>Welkom</h2>
+  <p>Ambachtelijke bakkerij met dagelijks verse producten. Snel geleverd en lokaal geproduceerd.</p>
+</section>
+
+<section id="producten" class="section">
+  <h2>Onze Producten</h2>
+  <div class="grid" id="productGrid"></div>
+
+  <div class="cart">
+    <h3>Winkelwagen</h3>
+    <ul id="cartItems"></ul>
+    <p>Totaal: €<span id="total">0.00</span></p>
+    <button class="primary" onclick="checkout()">Bestellen</button>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <p>Email: info@degoudenkorst.nl</p>
+  <p>Deel deze pagina:</p>
+  <button onclick="share()">📤 Delen</button>
+</section>
+
+<footer>
+  © 2026 Bakkerij De Goude Korst
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
