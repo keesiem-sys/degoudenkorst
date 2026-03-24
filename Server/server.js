@@ -46,8 +46,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Fallback voor alle andere routes (optioneel, handig voor SPA)
-app.get('*', (req, res) => {
+// Fallback voor alle andere routes (SPA / frontend)
+app.all('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
