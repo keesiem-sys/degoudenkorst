@@ -35,3 +35,7 @@ app.post('/create-checkout-session', async (req,res)=>{
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, ()=>console.log(`Server draait op poort ${PORT}`));
+
+app.get('/', (req, res) => {
+  res.send('Welkom bij De Goude Korst backend!');
+});
